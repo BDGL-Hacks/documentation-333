@@ -1,5 +1,8 @@
 \documentclass[12pt]{article}
 
+\usepackage{graphicx}
+\usepackage{hyperref}
+
 \setlength{\textheight}{8.5in}
 \setlength{\headheight}{.25in}
 \setlength{\headsep}{.25in}
@@ -19,18 +22,23 @@
 
 \section{Overview}
 
-main points Blake thinks we should make here
+PartyUp is an iOS app written in Swift.
+The app's back end is hosted on an Amazon Web Services
+EC2 instance running Ubuntu.
+The back end is built using the Django web framework and uses
+a MySQL database.
+PartyUp uses Git for version control and the code for the project is 
+hosted on \href{https://github.com/}{GitHub}.
+The iOS code and back end code can be found at 
+\url{https://github.com/BDGL-Hacks/iOS-333} and
+\url{https://github.com/BDGL-Hacks/backend-333} respectively.
 
-\begin{itemize}
-\item Hosted on AWS EC2 with Ubuntu, Apache, and Django
-\item iOS app written in Swift
-\end{itemize}
 
-\section{Implementation}
+\section{Implementation: Front End}
 
-This is where we will talk about how we did stuff
+Gonna put more sick graphics here
 
-\subsection{Back End}
+\section{Implementation: Back End}
 
 Gonna put our sick graphics here \\
 I Dont know how much detail we need to go into about how
@@ -52,6 +60,5 @@ We use a class called DataManager.swift to handle key-value lookups of dictionar
 Much of the information exchange between view controllers is done in the prepareForSegue() method, called when the user triggers a segue from one view to another. In prepareForSegue(), we determine which segue will be executed and then set any variables of the destination view controller before it displays on screen. As an example, when a user clicks on a table cell in the ?My Events? table, we pass the cell?s associated event dictionary to the event info page?s view controller, where it can render the information accordingly. 
 
 Lance talks about iOS group messaging and push notifications here
-
 
 \end{document}
