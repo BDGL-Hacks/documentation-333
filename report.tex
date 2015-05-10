@@ -1,5 +1,7 @@
 \documentclass[12pt]{article}
 
+\usepackage{graphicx}
+
 \setlength{\textheight}{8.5in}
 \setlength{\headheight}{.25in}
 \setlength{\headsep}{.25in}
@@ -32,7 +34,7 @@ Another thing that was lacking in social event apps is the ability to change pla
 
 \bigskip
 
-Party safety is always important, and we we have also taken steps to address this in our app. A group member can quickly see the statuses of the other group members and whether or not they have checked in to the current event. If a user has not checked in, then we can see the last place where the user was going. Single tap 'pings' also allow for groups to quickly send notifications to missing group members.
+Party safety is always important, and we we have also taken steps to address this in our app. A group member can quickly see the statuses of the other group members and whether or not they have checked in to the current event. If a user has not checked in, then we can see the last place where the user was going. Single tap `pings' also allow for groups to quickly send notifications to missing group members.
 % section Motivation (end)
 
 \section{Design Decisions} % (fold)
@@ -76,7 +78,7 @@ However, choosing Swift proved to have some significant drawbacks that we did no
 
 3-weeks into the project Apple released an update for Swift that broke every file in our frontend code base. 
 The major update was in how Swift processes Optionals, a structure which handles the absence of a value. 
-In Apple's words, "Optionals say either 'there is a value, and it equals x' or 'there isn't a value at all'". 
+In Apple's words, ``Optionals say either `there is a value, and it equals x' or `there isn't a value at all'". 
 When we originally decided on Swift we had not considered the possibility of a significant language update. 
 At the time of the update, it wasn't much of a problem to fix the code. 
 However, it alerted us to the fact that Swift is still a new and unstable language. 
@@ -117,6 +119,47 @@ This would only take a re-working of the UI to implement the photos.
 
 \bigskip
 
+\section{Challenges}
+
+While building the app, there were a lot of problems that we did not anticipate.
+Although we did not find elegant solutions to all of these problems,
+there are a couple that stand out that we are proud of.
+
+\subsection{PivotalTracker (section name?)}
+
+When we started working on our project, we did not have a clear strategy for 
+delegating work or keeping track of the things that needed to be done.
+Initially, we maintained a list of tasks in the Git repository's \texttt{README.md} file,
+but we quickly ran into trouble keeping the document up to date.
+Furthermore, it was often unclear which people were working on each of the tasks in the README.
+There were several occasions in which two people wrote the same function independently
+and did not find out until one of them was confronted with a merge conflict when pulling code.
+After a few weeks into the project, it was clear that we needed a better system.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.3]{pivotaltracker.png}
+    \caption{
+        PivotalTracker revolutionized our work flow. 
+        This is a picture of the back end's PivotalTracker page around week 4.
+    }
+    \label{fig:pivotaltracker}
+\end{figure}
+
+We decided to try a product called PivotalTracker that we found online,
+and we were really happy with the results.
+PivotalTracker allowed us to create ``tickets" for each of the tasks that needed to be done.
+Group members can then claim tickets so everyone else can see that they are working on it.
+Furthermore, PivotalTracker made it really easy to add new tasks as we discovered things that needed to be done.
+In the end, PivotalTracker saved us a lot of time and make communication and planning way easier.
+
+\subsection{Testing}
+
+Most of the testing was done locally. If the app had been ready earlier, we would have used TestFlight to distribute it to real users for beta testing. Nonetheless, we were able to stress test the backend database with 2,000 users from the Drexel University email list.
+
+\bigskip
+\section{What we would have done differently}
+
 We had also initially planned to use geolocation to find and track group members but we decided to drop that feature so that we could focus on polishing the app. 
 Geolocation would make a lot of the features happen automatically and generally make the app easier to use. 
 
@@ -148,12 +191,6 @@ Eventually the back end created the group detail page in HTML to allow the front
 
 \bigskip
 
-\section{Testing}
-
-Most of the testing was done locally. 
-If the app had been ready earlier, we would have used TestFlight to distribute it to users for beta testing. 
-Nonetheless, we were able to stress test the backend database with 5,000 users from the Drexel University email list.
-
 \section{Advice for next year's class}
 
 To the COS 333 class of 2016, when planning your project, we recommend setting realistic goals. 
@@ -183,6 +220,6 @@ It was difficult for many of the team members to completely trust that features 
 
 \subsection{Graham Turk}
 
-Despite the challenges and frustrations, this was undoubtedly the most valuable experience in my time at Princeton. In the past four years I have made multiple attempts to learn app development but never had the time nor drive to follow through. The sheer quantity of information, without a clear method of learning it, had been a major deterrent to crack into development. I always saw app development as indicative of "real-world" work, where there is no exact formula for how to tackle each problem. Given my failures to make progress, I questioned if I would be able to succeed in that model. This project proved what I always doubted to be true: perhaps the best way to learn is to be thrown into an unfamiliar situation and told to "figure it out." This time, I was not learning as a hobby. I felt an obligation to my team members to make steady progress each week. And as a result of this unique situation, I was able to prove to myself that I can learn an entirely new skill without a formal set of steps to follow. 
+Despite the challenges and frustrations, this was undoubtedly the most valuable experience in my time at Princeton. In the past four years I have made multiple attempts to learn app development but never had the time nor drive to follow through. The sheer quantity of information, without a clear method of learning it, had been a major deterrent to crack into development. I always saw app development as indicative of ``real-world" work, where there is no exact formula for how to tackle each problem. Given my failures to make progress, I questioned if I would be able to succeed in that model. This project proved what I always doubted to be true: perhaps the best way to learn is to be thrown into an unfamiliar situation and told to ``figure it out." This time, I was not learning as a hobby. I felt an obligation to my team members to make steady progress each week. And as a result of this unique situation, I was able to prove to myself that I can learn an entirely new skill without a formal set of steps to follow. 
 
 \end{document}
