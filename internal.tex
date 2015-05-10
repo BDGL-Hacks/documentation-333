@@ -2,6 +2,7 @@
 
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{listings}
 
 \setlength{\textheight}{8.5in}
 \setlength{\headheight}{.25in}
@@ -23,7 +24,7 @@
 \section{Overview}
 
 PartyUp is an iOS app written in Swift.
-The app's back end is hosted on an Amazon Web Services
+The app's back end is hosted on an Amazon Web Services (AWS)
 EC2 instance running Ubuntu.
 The back end is built using the Django web framework and uses
 a MySQL database.
@@ -33,21 +34,9 @@ The iOS code and back end code can be found at
 \url{https://github.com/BDGL-Hacks/iOS-333} and
 \url{https://github.com/BDGL-Hacks/backend-333} respectively.
 
+%%----------------------------------------------------------------------------------------------------
 
 \section{Implementation: Front End}
-
-Gonna put more sick graphics here
-
-\section{Implementation: Back End}
-
-Gonna put our sick graphics here \\
-I Dont know how much detail we need to go into about how
-Django works. Like, do we need to talk about urls.py, settings.py,
-models.py, views.py, and etc.?
-
-\subsection{Front End}
-
-Gonna put more sick graphics here
 
 The project's iOS code is written in the Swift programming language in the Xcode development environment. You can build and run the project using one of the simulators in Xcode or by plugging in a registered Apple device. The code design follows the traditional-Model-View Controller paradigm. On the UI side, we used Xcode's interface builder tool to create the views the user interacts with. The interface builder generates XML code in the Main.storyboard file, which can be inspected in any text editor.
 
@@ -70,5 +59,64 @@ Much of the information exchange between view controllers is done in the prepare
 \bigskip
 
 Lance talks about iOS group messaging and push notifications here
+
+%%------------------------------------------------------------------------------------
+
+\section{Implementation: Back End}
+
+At a high level, there are a few major components to the back end:
+an AWS EC2 instance, an AWS S3 bucket, Pusher, and the Apple Push Notification Service (APNS).
+Figure~\ref{fig:stack} contains a graphical representation of the system.
+All of the functions in the PartyUp API are documented on GitHub
+in the \href{https://github.com/BDGL-Hacks/backend-333/wiki}{project wiki},
+and all of the Python code is written according to the PEP-8 Python standard.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.4]{Stack.png}
+    \caption{
+        A simplified map of the PartyUp back end. 
+    }
+    \label{fig:stack}
+\end{figure}
+
+
+In this section, we will give an overview each of major components in this system
+in the context of the code found in the
+\href{https://github.com/BDGL-Hacks/backend-333}{backend-333 directory}.
+At the top level, there are a few files and sub-directories.
+
+\texttt{curl.sh} is a short bash script that is basically a wrapper for 
+\texttt{cURL} that makes it a little easier to test the back end API.
+
+\texttt{requirements.txt} is a list of Python packages that are needed to
+run all of the Python programs within the directory.
+All of the packages can be installed using \texttt{pip}, the recommended
+Python package manager.
+The command
+\begin{lstlisting}
+    pip install -r requirements.txt
+\end{lstlisting}
+will install all of the packages at once.
+
+The two directories, \texttt{testdata} and \texttt{partyup} will be covered
+in greater detail below.
+
+\subsection{testdata}
+
+This directory contains a Python script, \texttt{filldatabase.py},
+which can be used to fill the PartyUp database with test data
+found in the accompanying files, \texttt{users.txt} and \texttt{events.txt}.
+The files themselves are well documented and contain information about
+how to run the script.
+
+\subsection{partyup}
+
+This directory contains the Django project, and thus,
+it contains most of the code for the back end.
+For the most part, the files are structured in the way you would
+expect in your typical Django project
+(see \url{https://docs.djangoproject.com/en/1.7/} for an introduction to Django),
+although there are a few exceptions.
 
 \end{document}
