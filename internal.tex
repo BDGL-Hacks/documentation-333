@@ -38,8 +38,12 @@ The iOS code and back end code can be found at
 \url{https://github.com/BDGL-Hacks/iOS-333} and
 \url{https://github.com/BDGL-Hacks/backend-333} respectively.
 
-The front end iOS app interacts with the back end through HTTP requests.
-The iOS client can access the back end API using 
+The front end iOS app interacts with the back end API through HTTP requests.
+The iOS client sends a POST request that indicates which API function to call 
+to the Django application on the AWS instance, and the server returns a JSON object that 
+includes the information requested by the client.
+All of the functions in the PartyUp API are documented on GitHub
+in the \href{https://github.com/BDGL-Hacks/backend-333/wiki}{project wiki},
 
 %%---------------------------------------------------------------------------------------------------
 %% Front End
@@ -99,9 +103,6 @@ Lance talks about iOS group messaging and push notifications here
 At a high level, there are a few major components to the back end:
 an AWS EC2 instance, an AWS S3 bucket, Pusher, and the Apple Push Notification Service (APNS).
 Figure~\ref{fig:stack} contains a graphical representation of the system.
-All of the functions in the PartyUp API are documented on GitHub
-in the \href{https://github.com/BDGL-Hacks/backend-333/wiki}{project wiki},
-and all of the Python code is written according to the PEP-8 Python standard.
 
 \begin{figure}[h]
     \centering
@@ -133,6 +134,8 @@ will install all of the packages at once.
 
 The two directories, \texttt{testdata} and \texttt{partyup} will be covered
 in greater detail below.
+It should noted that all of the Python files included in these directories
+is written to the PEP-8 Python standard.
 
 \subsection{testdata}
 
