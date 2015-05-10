@@ -82,13 +82,22 @@ Though using Swift came with its problems, the code reads nicely and we hope tha
 \bigskip
 
 \section{Public API}
-One of the best decisions our group made was publishing an api in the backend Github repository. The api describes the required post parameter key-value pairs and the contents of the returned JSON file. The documentation allowed the front end team to quickly look up the required parameters of any backend-interfacing method. The key names of the returned JSON were translated into methods in our data manager class, which handles all key-value lookups. The Github wiki page aggregated all of the post urls in one, easily navigable location. There was no need to waste time calling or texting a member of the backend team to find out if it was api/group/create or api/groups/create. In addition, given that the api is not specific to iOS development, having the information available opens the door for development in Android or web.
+One of the best decisions our group made was publishing an api in the backend Github repository. 
+The api describes the required post parameter key-value pairs and the contents of the returned JSON file. 
+This documentation allows the front end team to quickly look up the required parameters of any backend-interfacing method. 
+This allowed the front-end to develop without any back-end members present.
+In addition, having the api available opens the door for development in Android or web.
+
+In order for the data from the api to be handled by Xcode the key names of the returned JSON were translated into methods in the data manager class. This class handles all key-value lookups. 
 
 \bigskip
 
 \section{Moving Forward}
 
-If there were more time, we would have built the group detail pages natively in iOS. When it came down to the last week, we realized that the front end team would not be able to complete some of the views we saw as essential to the app. We were able to solve the problem by loading html, css, and javascript (written by the backend team) directly into some of the views. Though the html pages are fully functional, there is a marked difference in look and feel, as well as a short time delay to make the page request. Perhaps with an extra week, the front end team would have been able to render these views in iOS and keep a consistent feel across the app. 
+When it came down to the last week, we realized that the front end team would not be able to complete some of the views we saw as essential to the app. 
+We were able to solve the problem by loading html, css, and javascript (written by the backend team) directly into some of the views. 
+Though the html pages are fully functional, there is a marked difference in look and feel, as well as a short time delay to make the page request. 
+Perhaps with an extra week, the front end team would have been able to render these views in iOS and keep a consistent feel across the app. 
 
 \bigskip
 
