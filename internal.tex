@@ -53,17 +53,18 @@ by plugging in a registered Apple device.
 The code design follows the traditional Model-View-Controller (MVC) paradigm.
 On the UI side, we used Xcode's interface builder tool to
 create the views the user interacts with.
-The interface builder generates XML code in the Main.storyboard file,
+The interface builder generates XML code in the \texttt{Main.storyboard file},
 which can be inspected in any text editor.
 
-Each view is linked with a view controller class,
-which dictates how to render the view and handles user actions.
-The view controllers interact with model classes to fetch information
-to display on the screen and to store information the user inputs.
-The models function as the middlemen between the front and back end:
-during the creation processes, the models are staging areas before the user completes the event or group;
-when fetching data, the models test for errors and
-null values before passing the information to the view controllers.
+Each view is linked with a view controller class
+which dictates how to render the view and handle the user's actions. 
+The view controllers interact with model classes to fetch information 
+that is displayed on the screen. 
+The view controllers also stores information the user inputs. 
+The models function as the middlemen between the front end and back end: 
+during the creation process the models are areas to store local information 
+before the user completes the event or group. When fetching data the models 
+test for errors and null values before passing the information to the view controllers.
 
 All model classes call methods of the singleton class \texttt{PartyUpBackend.swift},
 which handles information exchange with the back end, including event creation,
