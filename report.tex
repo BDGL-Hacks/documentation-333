@@ -38,20 +38,39 @@ Party safety is always important, and we we have also taken steps to address thi
 
 \subsection{Xcode Interface Builder}
 
-We created all of the UI designs with Xcode's interface builder tool. The tool allows one to drag and drop UI elements onto a canvas, change color schemes visually, and set layout constraints. Interface builder gave us a clear picture of the app's aesthetics before it was running on a phone. Perhaps even more useful, interface builder facilitates creating outlets and target-action methods between the view and code. In what was a bizarre experience at first, you can actually drag from a canvas element directly to the source code to generate an outlet variable or action method. 
+We created all of the UI designs with Xcode's interface builder tool.
+The tool allows one to drag and drop UI elements onto a canvas, change color schemes visually, and set layout constraints.
+Interface builder gave us a clear picture of the app's aesthetics before it was running on a phone. 
+Perhaps even more useful, interface builder facilitates creating outlets and target-action methods between the view and code. 
+In what was a bizarre experience at first, you can actually drag from a canvas element directly to the source code to generate an outlet variable or action method. 
 
 \bigskip
 
-Despite the usefulness of interface builder, we quickly learned that it is not designed for version control. Without explicit control over the generated code, we frequently ran into nasty merge conflicts in the XML file. Looking back, it's tough to say that doing the UI entirely in code would have prevented these merge conflicts. Neither of us had experience in Xcode, so programming the UI as well would have been much harder initially. However, had we decided to not use the interface builder, we would have saved hours that were spent inspecting lines of code from merge conflicts in the storyboard file. 
+Despite the usefulness of interface builder, we quickly learned that it is not designed for version control.
+Without explicit control over the generated code, we frequently ran into nasty merge conflicts in the XML file.
+Looking back, it's tough to say that doing the UI entirely in code would have prevented these merge conflicts. 
+Neither of us had experience in Xcode, so programming the UI as well would have been much harder initially. 
+However, had we decided to not use the interface builder, we would have saved hours that were spent inspecting lines of code from merge conflicts in the storyboard file. 
 
 \bigskip
 
 \subsection{Swift vs. Objective-C}
-We knew immediately after deciding to do an iPhone app that we would use the new Swift programming language. Neither members of the frontend team had done iOS development, so we would be learning a new language in any case. We felt that Swift is poised to become the dominant iOS language in the future, and would therefore be important to know if either of us wanted to build another app. In addition, in reading through the documentation, we saw many similarities between Swift and Python, a language we were both familiar with. Swift looked more enjoyable to program in than Objective-C and we realized its potential to be used outside of iOS development for more general programming. This choice proved to have some significant drawbacks, however, that we did not foresee. 
+We had decided to use the Swift programming language very quickly after beginning the iPhone app development.
+Neither members of the frontend team had done iOS development, so both Swift and Objective-C would involve learning a new language. 
+We feel that Swift is poised to become the dominant iOS language in the future, and it would be the most useful therefore be important to know if either of us wanted to build another app. 
+While reading through the documentation for both languages we saw many similarities between Swift and Python. 
+Because everyone has prior python experience, we saw this as a major plus. 
+However, choosing Swift proved to have some significant drawbacks that we did not foresee. 
 
 \bigskip
 
-At around the 3-week mark, Apple released an update for Swift that broke every file in our frontend code base. The major update was in how Swift processes ?Optionals,? which handle the absence of a value. In Apple?s words, ?Optionals say either ?there is a value, and it equals x? or ?there isn?t a value at all??. We had not even considered the possibility of a significant language update when we decided on Swift. At the time of the update, it wasn?t much of a problem to fix the code. However, it alerted us to the fact that Swift is still a new and unstable language. As our code base grew, it grew more liable to a change in Swift.
+3-weeks into the project Apple released an update for Swift that broke every file in our frontend code base. 
+The major update was in how Swift processes Optionals, a structure which handles the absence of a value. 
+(WAT)In Apple?s words, ?Optionals say either ?there is a value, and it equals x? or ?there isn?t a value at all??. 
+We had not even considered the possibility of a significant language update when we decided on Swift. 
+At the time of the update, it wasn?t much of a problem to fix the code. 
+However, it alerted us to the fact that Swift is still a new and unstable language. 
+As our code base grew, it grew more liable to a change in Swift.
 
 \bigskip
 
