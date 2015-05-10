@@ -42,38 +42,42 @@ Party safety is always important, and we we have also taken steps to address thi
 
 \subsection{Frontend Design Decisions}
 
-\subsubsection{Xcode Interface Builder}
+\subsubsection{Design Process}
 
-We created all of the UI designs with Xcode's interface builder tool.
-The tool allows one to drag and drop UI elements onto a canvas, change color schemes visually, and set layout constraints.
-Interface builder gave us a clear picture of the app's aesthetics before it was running on a phone. 
+% picture of index card mockup
+
+In preliminary mockups of PartyUp, we opted for good old-fashioned index cards. Though simplistic, the index cards became some of the most important guidelines when we started to build views in Xcode.
+We chose to use Xcode's interface builder tool for all of the UI designs. The tool allows one to drag and drop UI elements onto a canvas, change color schemes visually, and set layout constraints.
+Interface builder allowed us to reconstruct the index card UI on a virtual canvas. It gave us a clear picture of the app's aesthetics before it was running on a phone. 
 Perhaps even more useful, interface builder facilitates creating outlets and target-action methods between the view and code. 
 In what was a bizarre experience at first, you can actually drag from a canvas element directly to the source code to generate an outlet variable or action method. 
 
 \bigskip
 
+\subsubsection{Xcode Challenges}
+
 Despite the usefulness of interface builder, we quickly learned that it is not designed for version control.
 Without explicit control over the generated code, we frequently ran into nasty merge conflicts in the XML file.
 Looking back, it's tough to say that doing the UI entirely in code would have prevented these merge conflicts. 
 Neither of us had experience in Xcode, so programming the UI as well would have been much harder initially. 
-However, had we decided to not use the interface builder, we would have saved hours that were spent inspecting lines of code from merge conflicts in the storyboard file. 
+However, had we decided to not use the interface builder, we could have saved hours spent inspecting lines of code from merge conflicts in the storyboard file. 
 
 \bigskip
 
 \subsubsection{Swift vs. Objective-C}
 We had decided to use the Swift programming language very quickly after beginning the iPhone app development.
 Neither members of the frontend team had done iOS development, so both Swift and Objective-C would involve learning a new language. 
-We feel that Swift is poised to become the dominant iOS language in the future, and it would be the most useful therefore be important to know if either of us wanted to build another app. 
+We feel that Swift is poised to become the dominant iOS language in the future, and it would therefore be the most useful to know if either of us wanted to build another app. 
 While reading through the documentation for both languages we saw many similarities between Swift and Python. 
-Because everyone has prior python experience, we saw this as a major plus. 
+Because everyone had prior python experience, we saw this as a major plus. 
 However, choosing Swift proved to have some significant drawbacks that we did not foresee. 
 
 \bigskip
 
 3-weeks into the project Apple released an update for Swift that broke every file in our frontend code base. 
 The major update was in how Swift processes Optionals, a structure which handles the absence of a value. 
-(WAT)In Apple?s words, ?Optionals say either ?there is a value, and it equals x? or ?there isn?t a value at all??. 
-When we originally decided on Swift we had not even considered the possibility of a significant language update. 
+In Apple's words, "Optionals say either 'there is a value, and it equals x' or 'there isn't a value at all'". 
+When we originally decided on Swift we had not considered the possibility of a significant language update. 
 At the time of the update, it wasn't much of a problem to fix the code. 
 However, it alerted us to the fact that Swift is still a new and unstable language. 
 
@@ -179,6 +183,6 @@ It was difficult for many of the team members to completely trust that features 
 
 \subsection{Graham Turk}
 
-Despite the challenges and frustrations, this was undoubtedly the most valuable experience in my time at Princeton. In the past four years I have made multiple attempts to learn app development but never had the time nor drive to follow through. The sheer quantity of information, without a clear method of learning it, had been a major deterrent to crack into development. I always saw app development as indicative of ?real-world? work, where there is no exact formula for how to tackle each problem. Given my failures to make progress, I questioned if I would be able to succeed in that model. This project proved what I always doubted to be true, that perhaps the best way to learn is to be thrown into an unfamiliar situation and told to ?figure it out.? This time, I was not learning as a hobby. I felt an obligation to my team members to make steady progress each week. And as a result of this unique situation, I was able to prove to myself that I can learn an entirely new skill without a formal set of steps to follow. 
+Despite the challenges and frustrations, this was undoubtedly the most valuable experience in my time at Princeton. In the past four years I have made multiple attempts to learn app development but never had the time nor drive to follow through. The sheer quantity of information, without a clear method of learning it, had been a major deterrent to crack into development. I always saw app development as indicative of "real-world" work, where there is no exact formula for how to tackle each problem. Given my failures to make progress, I questioned if I would be able to succeed in that model. This project proved what I always doubted to be true: perhaps the best way to learn is to be thrown into an unfamiliar situation and told to "figure it out." This time, I was not learning as a hobby. I felt an obligation to my team members to make steady progress each week. And as a result of this unique situation, I was able to prove to myself that I can learn an entirely new skill without a formal set of steps to follow. 
 
 \end{document}
