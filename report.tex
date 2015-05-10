@@ -21,14 +21,20 @@
 
 \section{Motivation} % (fold)
 \label{sec:Motivation}
-We created PartyUp to provide solutions to many problems that we have found when looking for quick ways to communicate with friends when out at an event or party. We designed the app with the idea that it would allow users to quickly change plans, find where their friends are, and communicate rapidly.
+We created PartyUp to help people communicate with friends when out at an event or party. We designed the app with the idea that it would allow users to quickly change plans, find where their friends are, and better facilitate party safety.
+
+\bigskip
 
 PartyUp's was mainly built to give a user an easy way to plan a night out with friends and keep track of those friends throughout the night. Most social media apps focus on singular events or permanent groups, neither of which are conducive to a party setting.
 PartyUp focuses on groups that have gotten together to go to a specific event. Because each group must be tied to at least one event, PartyUp knows when the group should eventually be disbanded. This gives PartyUp groups the ephemeral quality that is currently enjoyed in apps like SnapChat and Yik Yak.
 
+\bigskip
+
 Another thing that was lacking in social event apps is the ability to change plans rapidly. In PartyUp groups are able to quickly add or create a new event, check on the locations of their group-members, and send messages back and forth. This helps the group stay together even when the events around them are changing. 
 
-Party safety is always important, and we we have also taken steps to address this in our app. A group member can quickly see the statuses of the other group members and whether or not they have checked in to the current event. If a user has not checked in, then we can see the last place where the user was going. Single tap 'pings' also allow for groups to quickly send notifications to missing group members.
+\bigskip
+
+Party safety is always important, and we we have also taken steps to address this in our app. A group member can quickly see the statuses of the other group members and whether or not they have checked in to the current event. If a user has not checked in, then we can see the last place where the user was going. Single tap `pings' also allow for groups to quickly send notifications to missing group members.
 % section Motivation (end)
 
 \section{Design Decisions} % (fold)
@@ -36,43 +42,80 @@ Party safety is always important, and we we have also taken steps to address thi
 
 % section design_decisions (end)
 
-\section{Frontend Design Decisions}
+\subsection{Frontend Design Decisions}
 
-\subsection{Xcode Interface Builder}
+\subsubsection{Design Process}
 
-We did all of the UI design using Xcode's interface builder tool. The tool allows you to drag and drop UI elements onto a canvas, change color schemes visually, and set layout constraints. Interface builder gave us a clear picture of the app?s aesthetics before it was running on a phone. Perhaps even more useful, interface builder facilitates creating outlets and target-action methods between the view and code. In what was a bizarre experience at first, you can actually drag from a canvas element directly to the source code to generate an outlet variable or action method. 
+% picture of index card mockup
 
-\bigskip
-
-Despite the usefulness of interface builder, we quickly learned that it is not designed for version control. Without explicit control over the generated code, we frequently ran into nasty merge conflicts in the XML file. Looking back, it's tough to say that doing the UI entirely in code would have been better. Neither of us had experience in Xcode, so it would have been an even steeper learning curve. On the other hand, we would have saved hours spent mulling through lines of code to avoid errors in the storyboard file. 
-
-\bigskip
-
-\subsection{Swift vs. Objective-C}
-We knew immediately after deciding to do an iPhone app that we would use the new Swift programming language. Neither members of the frontend team had done iOS development, so we would be learning a new language in any case. We felt that Swift is poised to become the dominant iOS language in the future, and would therefore be important to know if either of us wanted to build another app. In addition, in reading through the documentation, we saw many similarities between Swift and Python, a language we were both familiar with. Swift looked more enjoyable to program in than Objective-C and we realized its potential to be used outside of iOS development for more general programming. This choice proved to have some significant drawbacks, however, that we did not foresee. 
+In preliminary mockups of PartyUp, we opted for good old-fashioned index cards. Though simplistic, the index cards became some of the most important guidelines when we started to build views in Xcode.
+We chose to use Xcode's interface builder tool for all of the UI designs. The tool allows one to drag and drop UI elements onto a canvas, change color schemes visually, and set layout constraints.
+Interface builder allowed us to reconstruct the index card UI on a virtual canvas. It gave us a clear picture of the app's aesthetics before it was running on a phone. 
+Perhaps even more useful, interface builder facilitates creating outlets and target-action methods between the view and code. 
+In what was a bizarre experience at first, you can actually drag from a canvas element directly to the source code to generate an outlet variable or action method. 
 
 \bigskip
 
-At around the 3-week mark, Apple released an update for Swift that broke every file in our frontend code base. The major update was in how Swift processes ?Optionals,? which handle the absence of a value. In Apple?s words, ?Optionals say either ?there is a value, and it equals x? or ?there isn?t a value at all??. We had not even considered the possibility of a significant language update when we decided on Swift. At the time of the update, it wasn?t much of a problem to fix the code. However, it alerted us to the fact that Swift is still a new and unstable language. As our code base grew, it grew more liable to a change in Swift.
+\subsubsection{Xcode Challenges}
+
+Despite the usefulness of interface builder, we quickly learned that it is not designed for version control.
+Without explicit control over the generated code, we frequently ran into nasty merge conflicts in the XML file.
+Looking back, it's tough to say that doing the UI entirely in code would have prevented these merge conflicts. 
+Neither of us had experience in Xcode, so programming the UI as well would have been much harder initially. 
+However, had we decided to not use the interface builder, we could have saved hours spent inspecting lines of code from merge conflicts in the storyboard file. 
 
 \bigskip
 
-With regards to the Swift vs. Objective-C debate, we underestimated the importance of online resources. For almost any question we arrived at, there were a bevy of Stack Overflow posts with perfect answers in Objective-C, but barely any in Swift. We were sometimes forced to attempt to convert the Objective-C code into Swift, which came with associated difficulties. In retrospect, the language of choice was not as important as we had expected. The majority of challenges we faced came from figuring out the CocoaTouch framework, an abstraction layer that handles gesture recognizers and animation, among other UI features. Though using Swift came with its problems, the code reads nicely and we hope that learning Swift will be valuable for our futures as developers.
+\subsubsection{Swift vs. Objective-C}
+We had decided to use the Swift programming language very quickly after beginning the iPhone app development.
+Neither members of the frontend team had done iOS development, so both Swift and Objective-C would involve learning a new language. 
+We feel that Swift is poised to become the dominant iOS language in the future, and it would therefore be the most useful to know if either of us wanted to build another app. 
+While reading through the documentation for both languages we saw many similarities between Swift and Python. 
+Because everyone had prior python experience, we saw this as a major plus. 
+However, choosing Swift proved to have some significant drawbacks that we did not foresee. 
+
+\bigskip
+
+3-weeks into the project Apple released an update for Swift that broke every file in our frontend code base. 
+The major update was in how Swift processes Optionals, a structure which handles the absence of a value. 
+In Apple's words, ``Optionals say either `there is a value, and it equals x' or `there isn't a value at all'". 
+When we originally decided on Swift we had not considered the possibility of a significant language update. 
+At the time of the update, it wasn't much of a problem to fix the code. 
+However, it alerted us to the fact that Swift is still a new and unstable language. 
+
+\bigskip
+
+With regards to the Swift vs. Objective-C debate, we underestimated the importance of online resources. 
+For almost any question we arrived at, there were a bevy of Stack Overflow posts with perfect answers in Objective-C, but barely any in Swift. 
+The majority of challenges we faced came from figuring out the CocoaTouch framework, an abstraction layer that handles gesture recognizers and animation, among other UI features. 
+CocoaTouch documentation was mostly in Objective-C, so we were sometimes forced to attempt to convert the Objective-C code into Swift. 
+Though using Swift came with its problems, the code reads nicely and we hope that learning Swift will be valuable for our futures as developers.
 
 \bigskip
 
 \section{Public API}
-One of the best decisions our group made was publishing an api in the backend Github repository. The api describes the required post parameter key-value pairs and the contents of the returned JSON file. The documentation allowed the front end team to quickly look up the required parameters of any backend-interfacing method. The key names of the returned JSON were translated into methods in our data manager class, which handles all key-value lookups. The Github wiki page aggregated all of the post urls in one, easily navigable location. There was no need to waste time calling or texting a member of the backend team to find out if it was api/group/create or api/groups/create. In addition, given that the api is not specific to iOS development, having the information available opens the door for development in Android or web.
+One of the best decisions our group made was publishing an api in the backend Github repository. 
+The api describes the required post parameter key-value pairs and the contents of the returned JSON file. 
+This documentation allows the front end team to quickly look up the required parameters of any backend-interfacing method. 
+This allowed the front-end to develop without any back-end members present.
+In addition, having the api available opens the door for development in Android or web.
 
 \bigskip
+
+In order for the data from the api to be handled by Xcode the key names of the returned JSON were translated into methods in the data manager class. This class handles all key-value lookups. 
 
 \section{Moving Forward}
 
-If there were more time, we would have built the group detail pages natively in iOS. When it came down to the last week, we realized that the front end team would not be able to complete some of the views we saw as essential to the app. We were able to solve the problem by loading html, css, and javascript (written by the backend team) directly into some of the views. Though the html pages are fully functional, there is a marked difference in look and feel, as well as a short time delay to make the page request. Perhaps with an extra week, the front end team would have been able to render these views in iOS and keep a consistent feel across the app. 
+When it came down to the last week, we realized that the front end team would not be able to complete some of the views we saw as essential to the app. 
+We were able to solve the problem by loading html, css, and javascript (written by the backend team) directly into some of the views. 
+Though the html pages are fully functional, there is a marked difference in look and feel, as well as a short time delay to make the page request. 
+Perhaps with an extra week, the front end team would have been able to render these views in iOS and keep a consistent feel across the app. 
 
 \bigskip
 
-A next step would be to implement photo uploads on the front end given that the backend already supports it. We had initially planned to do geolocation of group members, but decided to drop that feature for time constraints. In our presentation, we spoke briefly about third party event creation. Thinking about the economic potential of an app like PartyUp, we see event promotion as a major source of revenue. We would implement this feature as a website, giving local businesses and event organizers the ability to create their event online without having to download the app.
+Another step would be to implement photo uploads on the front end.
+We currently implement photo storage and retrieval on the back end, but the photos are never downloaded and shown in the front end.
+This would only take a re-working of the UI to implement the photos.
 
 \bigskip
 
@@ -117,19 +160,59 @@ Most of the testing was done locally. If the app had been ready earlier, we woul
 \bigskip
 \section{What we would have done differently}
 
-If we were to start over, I think we would have chosen a narrower problem to address. From the demos we attended, the most successful ones were those that performed one well-defined task. Though we laid out the target features in our initial design document, there was too much leeway. In addition, we would have picked a technology stack that allowed either the two teams to progress in parallel or one team to help the other in the event of a setback. With their experience in Django and AWS, the backend team was consistently ahead of the front end.
+We had also initially planned to use geolocation to find and track group members but we decided to drop that feature so that we could focus on polishing the app. 
+Geolocation would make a lot of the features happen automatically and generally make the app easier to use. 
 
 \bigskip
+
+In our presentation, we spoke briefly about third party event creation. 
+Thinking about the economic potential of an app like PartyUp, we see event promotion as a major source of revenue. 
+We would implement this feature as a website, giving local businesses and event organizers the ability to create their event online without having to download the app.
+
+\bigskip
+
+\section{What we would have done differently}
+
+If we were to start over, I think we would have chosen a narrower problem to address. 
+From the demos we attended, the most successful ones were those that performed one well-defined task. 
+Although we laid out the target features in our initial design document, there was a lot of leeway and we never had a single, clear direction for the app.
+In addition, we would have picked a technology stack that allowed more collaboration between the teams.
+An ideal technology stack would allow either the two teams to progress in parallel or one team to help the other in the event of a setback. 
+Because the back end had Django experience, the back end team was consistently ahead of the front end.
 
 \section{Milestones}
 
-For the first three weeks we stayed right on track with our milestone list. We were able to make significant progress at HackPrinceton, which we treated as a feature-thon for PartyUp. Login, register, event creation, and group creation were completed on schedule on both the backend and the frontend. We ran into some difficulty with push notification and group chat. 
+For the first three weeks we stayed right on track with our milestone list. 
+We were able to make significant progress at HackPrinceton, which we treated as a feature-thon for PartyUp. 
+Login, register, event creation, and group creation were completed on schedule on both the backend and the frontend. 
+We began to run into difficulties with push notifications and group chat. 
+At this point the back end was implementing functions, but there were no views on the front end to implement the features. 
+Eventually the back end created the group detail page in HTML to allow the front end to focus on fixing group chat and the other views. 
 
 \bigskip
 
+\section{Advice for next year's class}
+
+To the COS 333 class of 2016, when planning your project, we recommend setting realistic goals. 
+Pick a well-defined problem with a baseline solution you know you can finish in around 4 weeks.
+Features can always get added on top of the core functionality, but you want to have something you
+can proudly present even if all the work does not get finished by demo day.
+
+Without having to turn in something each week, it is easy to put off work until the end of the semester.
+But it is simply not feasible to build a fully functional app in the week before the demo. 
+Things will break, and you want leave time for testing and polishing.
+It is therefore important to to treat the weekly milestones like they were any regular class assignments, with hard deadlines. 
+If you are running behind schedule for multiple weeks, consider dropping a feature.
+Beyond that, just have fun with it. It's not every class that you get to build an app with your friends for a letter grade.
+
 \section{Group Reflection}
 
-Building PartyUp was unlike any school project we have ever done. We had complete autonomy over the app, a scary notion at first but one that allowed us to develop our creativity. In our case, delegation of work was essential; the project was simply too big and too complex for any one person to dominate. Two of our group members didn?t have Mac computers, so it they were literally unable to work on iOS portion of the code. Each one of us had to rely on other people, a feature of any real-world software development project. 
+Building PartyUp was unlike any school project we have ever done. 
+We had complete autonomy over the app, a scary notion at first but one that allowed us to develop our creativity. 
+In our case, delegation of work was essential; the project was simply too big and too complex for any one person to dominate. 
+Two of our group members didn't have Mac computers, so it they were literally unable to work on iOS portion of the code. 
+Each one of us had to rely on other people, a feature of any real-world software development project. 
+It was difficult for many of the team members to completely trust that features were going to be completed in time, but in the end we were all satisfied with the final project.
 
 \bigskip
 
@@ -137,6 +220,6 @@ Building PartyUp was unlike any school project we have ever done. We had complet
 
 \subsection{Graham Turk}
 
-Despite the challenges and frustrations, this was undoubtedly the most valuable experience in my time at Princeton. In the past four years I have made multiple attempts to learn app development but never had the time nor drive to follow through. The sheer quantity of information, without a clear method of learning it, had been a major deterrent to crack into development. I always saw app development as indicative of ?real-world? work, where there is no exact formula for how to tackle each problem. Given my failures to make progress, I questioned if I would be able to succeed in that model. This project proved what I always doubted to be true, that perhaps the best way to learn is to be thrown into an unfamiliar situation and told to ?figure it out.? This time, I was not learning as a hobby. I felt an obligation to my team members to make steady progress each week. And as a result of this unique situation, I was able to prove to myself that I can learn an entirely new skill without a formal set of steps to follow. 
+Despite the challenges and frustrations, this was undoubtedly the most valuable experience in my time at Princeton. In the past four years I have made multiple attempts to learn app development but never had the time nor drive to follow through. The sheer quantity of information, without a clear method of learning it, had been a major deterrent to crack into development. I always saw app development as indicative of ``real-world" work, where there is no exact formula for how to tackle each problem. Given my failures to make progress, I questioned if I would be able to succeed in that model. This project proved what I always doubted to be true: perhaps the best way to learn is to be thrown into an unfamiliar situation and told to ``figure it out." This time, I was not learning as a hobby. I felt an obligation to my team members to make steady progress each week. And as a result of this unique situation, I was able to prove to myself that I can learn an entirely new skill without a formal set of steps to follow. 
 
 \end{document}
