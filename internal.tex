@@ -49,7 +49,7 @@ models.py, views.py, and etc.?
 
 Gonna put more sick graphics here
 
-The project's iOS code is written in the Swift programming language in the Xcode development environment. You can build and run the project using one of the simulators in Xcode or by plugging in a registered Apple device. The code design follows the traditional-Model-View Controller design paradigm. On the UI side, we used Xcode?s interface builder tool to create the views the user interacts with. The interface builder generates XML code in the Main.storyboard file, which can be inspected in any text editor.
+The project's iOS code is written in the Swift programming language in the Xcode development environment. You can build and run the project using one of the simulators in Xcode or by plugging in a registered Apple device. The code design follows the traditional-Model-View Controller paradigm. On the UI side, we used Xcode's interface builder tool to create the views the user interacts with. The interface builder generates XML code in the Main.storyboard file, which can be inspected in any text editor.
 
 \bigskip
 
@@ -61,11 +61,11 @@ All model classes call methods of the singleton class PartyUpBackend.swift, whic
 
 \bigskip
 
-We use a class called DataManager.swift to handle key-value lookups of dictionary objects. All of the data manager?s methods are static and require a dictionary (e.g. an event) as an argument. They return (in proper format) the value associated with whatever key the method name corresponds to. 
+We use a class called DataManager.swift to handle key-value lookups of dictionary objects. All of the data manager's methods are static and require a dictionary (e.g. an event) as an argument. They return (in proper format) the value associated with whatever key the method name corresponds to. 
 
 \bigskip
 
-Much of the information exchange between view controllers is done in the prepareForSegue() method, called when the user triggers a segue from one view to another. In prepareForSegue(), we determine which segue will be executed and then set any variables of the destination view controller before it displays on screen. As an example, when a user clicks on a table cell in the ?My Events? table, we pass the cell?s associated event dictionary to the event info page?s view controller, where it can render the information accordingly. 
+Much of the information exchange between view controllers is done in the prepareForSegue() method, called when the user triggers a segue from one view to another. In prepareForSegue(), we determine which segue will be executed and then set any variables of the destination view controller before it displays on screen. As an example, when a user clicks on a table cell in the "My Events" table, we pass the cell's associated event dictionary to the event info page's view controller, where it can render the information accordingly. 
 
 \bigskip
 
