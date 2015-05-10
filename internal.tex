@@ -53,7 +53,7 @@ by plugging in a registered Apple device.
 The code design follows the traditional Model-View-Controller (MVC) paradigm.
 On the UI side, we used Xcode's interface builder tool to
 create the views the user interacts with.
-The interface builder generates XML code in the \texttt{Main.storyboard file},
+The interface builder generates XML code in the \texttt{Main.storyboard} file,
 which can be inspected in any text editor.
 
 Each view is linked with a view controller class
@@ -79,7 +79,7 @@ All of the data manager's methods are static and require a dictionary (e.g. an e
 They return (in proper format) the value associated with whatever key the method name corresponds to. 
 
 Much of the information exchange between view controllers is done in the \texttt{prepareForSegue()} method,
-called when the user triggers a segue from one view to another. In prepareForSegue(),
+called when the user triggers a segue from one view to another. In \texttt{prepareForSegue()},
 we determine which segue will be executed and then set any variables of the destination view
 controller before it displays on screen.
 For example, when a user clicks on a table cell in the ``My Events" table,
