@@ -67,14 +67,17 @@ However, choosing Swift proved to have some significant drawbacks that we did no
 3-weeks into the project Apple released an update for Swift that broke every file in our frontend code base. 
 The major update was in how Swift processes Optionals, a structure which handles the absence of a value. 
 (WAT)In Apple?s words, ?Optionals say either ?there is a value, and it equals x? or ?there isn?t a value at all??. 
-We had not even considered the possibility of a significant language update when we decided on Swift. 
-At the time of the update, it wasn?t much of a problem to fix the code. 
+When we originally decided on Swift we had not even considered the possibility of a significant language update. 
+At the time of the update, it wasn't much of a problem to fix the code. 
 However, it alerted us to the fact that Swift is still a new and unstable language. 
-As our code base grew, it grew more liable to a change in Swift.
 
 \bigskip
 
-With regards to the Swift vs. Objective-C debate, we underestimated the importance of online resources. For almost any question we arrived at, there were a bevy of Stack Overflow posts with perfect answers in Objective-C, but barely any in Swift. We were sometimes forced to attempt to convert the Objective-C code into Swift, which came with associated difficulties. In retrospect, the language of choice was not as important as we had expected. The majority of challenges we faced came from figuring out the CocoaTouch framework, an abstraction layer that handles gesture recognizers and animation, among other UI features. Though using Swift came with its problems, the code reads nicely and we hope that learning Swift will be valuable for our futures as developers.
+With regards to the Swift vs. Objective-C debate, we underestimated the importance of online resources. 
+For almost any question we arrived at, there were a bevy of Stack Overflow posts with perfect answers in Objective-C, but barely any in Swift. 
+The majority of challenges we faced came from figuring out the CocoaTouch framework, an abstraction layer that handles gesture recognizers and animation, among other UI features. 
+CocoaTouch documentation was mostly in Objective-C, so we were sometimes forced to attempt to convert the Objective-C code into Swift. 
+Though using Swift came with its problems, the code reads nicely and we hope that learning Swift will be valuable for our futures as developers.
 
 \bigskip
 
