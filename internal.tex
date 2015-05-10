@@ -21,6 +21,10 @@
 
 \maketitle
 
+%%---------------------------------------------------------------------------------------------------
+%% Introduction
+%%---------------------------------------------------------------------------------------------------
+
 \section{Overview}
 
 PartyUp is an iOS app written in Swift.
@@ -34,33 +38,60 @@ The iOS code and back end code can be found at
 \url{https://github.com/BDGL-Hacks/iOS-333} and
 \url{https://github.com/BDGL-Hacks/backend-333} respectively.
 
-%%----------------------------------------------------------------------------------------------------
+The front end iOS app interacts with the back end through HTTP requests.
+The iOS client can access the back end API using 
+
+%%---------------------------------------------------------------------------------------------------
+%% Front End
+%%---------------------------------------------------------------------------------------------------
 
 \section{Implementation: Front End}
 
-The project's iOS code is written in the Swift programming language in the Xcode development environment. You can build and run the project using one of the simulators in Xcode or by plugging in a registered Apple device. The code design follows the traditional-Model-View Controller paradigm. On the UI side, we used Xcode's interface builder tool to create the views the user interacts with. The interface builder generates XML code in the Main.storyboard file, which can be inspected in any text editor.
+The project's iOS code is written in the Swift programming language in the Xcode development environment.
+You can build and run the project using one of the simulators in Xcode or
+by plugging in a registered Apple device.
+The code design follows the traditional Model-View-Controller (MVC) paradigm.
+On the UI side, we used Xcode's interface builder tool to
+create the views the user interacts with.
+The interface builder generates XML code in the Main.storyboard file,
+which can be inspected in any text editor.
 
-\bigskip
+Each view is linked with a view controller class,
+which dictates how to render the view and handles user actions.
+The view controllers interact with model classes to fetch information
+to display on the screen and to store information the user inputs.
+The models function as the middlemen between the front and back end:
+during the creation processes, the models are staging areas before the user completes the event or group;
+when fetching data, the models test for errors and
+null values before passing the information to the view controllers.
 
-Each view is linked with a view controller class, which dictates how to render the view and handles user actions. The view controllers interact with model classes to fetch information to display on the screen and to store information the user inputs. The models function as the middlemen between the front and back end: during the creation processes, the models are staging areas before the user completes the event or group; when fetching data, the models test for errors and null values before passing the information to the view controllers.
+All model classes call methods of the singleton class \texttt{PartyUpBackend.swift},
+which handles information exchange with the back end, including event creation,
+push notification queries, and group message retrieval.
+Each method in this class prepares a dictionary of post parameters which is
+sent via HTTP request to the server through a method called \texttt{sendPostRequest()}.
+The \texttt{sendPostRequest()} method converts the returned JSON file from the back end to a dictionary object,
+which it then returns to the caller.
 
-\bigskip
+We use a class called DataManager.swift to handle key-value lookups of dictionary objects.
+All of the data manager's methods are static and require a dictionary (e.g. an event) as an argument.
+They return (in proper format) the value associated with whatever key the method name corresponds to. 
 
-All model classes call methods of the singleton class PartyUpBackend.swift, which handles information exchange with the backend, including event creation, push notification queries, and group message retrieval. Each method in this class prepares a dictionary of post parameters which is sent via HTTP request to the server through a method called sendPostRequest(). The sendPostRequest() method converts the returned JSON file from the backend to a dictionary object, which it then returns to the caller.
+Much of the information exchange between view controllers is done in the \texttt{prepareForSegue()} method,
+called when the user triggers a segue from one view to another. In prepareForSegue(),
+we determine which segue will be executed and then set any variables of the destination view
+controller before it displays on screen.
+For example, when a user clicks on a table cell in the ``My Events" table,
+we pass the cell's associated event dictionary to the event info page's view controller,
+where it can render the information accordingly. 
 
-\bigskip
-
-We use a class called DataManager.swift to handle key-value lookups of dictionary objects. All of the data manager's methods are static and require a dictionary (e.g. an event) as an argument. They return (in proper format) the value associated with whatever key the method name corresponds to. 
-
-\bigskip
-
-Much of the information exchange between view controllers is done in the prepareForSegue() method, called when the user triggers a segue from one view to another. In prepareForSegue(), we determine which segue will be executed and then set any variables of the destination view controller before it displays on screen. As an example, when a user clicks on a table cell in the "My Events" table, we pass the cell's associated event dictionary to the event info page's view controller, where it can render the information accordingly. 
-
-\bigskip
+%% LANCE HERE %%
 
 Lance talks about iOS group messaging and push notifications here
 
-%%------------------------------------------------------------------------------------
+%%---------------------------------------------------------------------------------------------------
+%% Back End
+%%---------------------------------------------------------------------------------------------------
 
 \section{Implementation: Back End}
 
