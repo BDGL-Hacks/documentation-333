@@ -102,14 +102,20 @@ In order for the data from the api to be handled by Xcode the key names of the r
 
 \section{Moving Forward}
 
-When it came down to the last week, we realized that the front end team would not be able to complete some of the views we saw as essential to the app. 
-We were able to solve the problem by loading html, css, and javascript (written by the backend team) directly into some of the views. 
-Though the html pages are fully functional, there is a marked difference in look and feel, as well as a short time delay to make the page request. 
-Perhaps with an extra week, the front end team would have been able to render these views in iOS and keep a consistent feel across the app. 
+The first feature that we would have tried to implement if we had more time is geolocation.
+We believe that PartyUp would greatly benefit from using geolocation to find and track group members.
+We were originally planning on including this feature, but given our limited time we decided to focus on polishing the app. 
+Geolocation would make a lot of the features happen automatically and generally make the app easier to use. 
 
 \bigskip
 
-Another step would be to implement photo uploads on the front end.
+Another potential extra feature would be an easy way to allow third party event creation and event promotion.
+Thinking about the economic potential of an app like PartyUp, we see event promotion as a major source of revenue. 
+We would implement this feature as a website, giving local businesses and event organizers the ability to create their event online without having to download the app.
+
+\bigskip
+
+Another feature that still needs to be implemented is front end photo support.
 We currently implement photo storage and retrieval on the back end, but the photos are never downloaded and shown in the front end.
 This would only take a re-working of the UI to implement the photos.
 
@@ -120,6 +126,16 @@ This would only take a re-working of the UI to implement the photos.
 While building the app, there were a lot of problems that we did not anticipate.
 Although we did not find elegant solutions to all of these problems,
 there are a couple that stand out that we are proud of.
+
+\subsection{Building the Event's Detail page}
+
+When it came down to the last week, we realized that the front end team would not be able to complete some of the views we saw as essential to the app. 
+The back end team offered to help, but they did not know XCode and they did not have Macs to program on.
+We were able to solve both of these problems by writing the views in  html, css, and javascript.
+These views were written by the back end and then rendered directly into some of the views. 
+We were even able to have it so that the html views interfaced with the iOS views directly, through the use of calling certain URLS. 
+Though the html pages are fully functional, there is a marked difference in look and feel, as well as a short time delay to make the page request. 
+Perhaps with an extra week, the front end team would have been able to render these views in iOS and keep a consistent feel across the app. 
 
 \subsection{PivotalTracker (section name?)}
 
@@ -156,14 +172,6 @@ Most of the testing was done locally. If the app had been ready earlier, we woul
 \bigskip
 \section{What we would have done differently}
 
-We had also initially planned to use geolocation to find and track group members but we decided to drop that feature so that we could focus on polishing the app. 
-Geolocation would make a lot of the features happen automatically and generally make the app easier to use. 
-
-\bigskip
-
-In our presentation, we spoke briefly about third party event creation. 
-Thinking about the economic potential of an app like PartyUp, we see event promotion as a major source of revenue. 
-We would implement this feature as a website, giving local businesses and event organizers the ability to create their event online without having to download the app.
 
 \section{What we would have done differently}
 
