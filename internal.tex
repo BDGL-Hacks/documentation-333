@@ -132,6 +132,7 @@ is written to the PEP-8 Python standard.
 \subsection{PartyUp's requirements}
 
 The main third-party packages that we used for Partyup are a package for Pusher, a package for Push Notifications, and MySQL-python. 
+The file \texttt{requirements.txt} includes the names and versions of each package used.
 All of the packages can be installed using \texttt{pip}, the recommended
 Python package manager.
 The command
@@ -163,11 +164,26 @@ although there are a few exceptions.
 All of the backend API code is contained within the \texttt{users} app.
 The \texttt{models.py} file contains all of the django objects and their relations for our database. 
 The views (http responses) for all of our API calls are found in the \texttt{views} folder and are split into appropriate files.
-The code is split into the files in the same manner that the API calls are divided within our Github wiki. We believed the best way to keep relevant API calls together was to group them by the objects that they interacted with. More information on individual methods can be found on our wiki or through the code comments.
+The code is split into the files in the same manner that the API calls are divided within our Github wiki. 
+We believed the best way to keep relevant API calls together was to group them by the objects that they interacted with. 
+More information on individual methods can be found on our wiki or in the code comments.
 
 \subsubsection{Our Django Models}
 
-Our main models are User\_Profile, Group, and Event. These models have self-explanatory names and intuitively named fields. We also have a few helper models. Our Channel model stores the information for each Group's chat channel. Our Message model is a single message sent in the chat. Our Ping model is the information corresponding with a single safety ping. Finally, our User\_Group\_info model contains information about the relationship of a User and Group (eg: which Event the User is at for a single Group).
+Our main models are User\_Profile, Group, and Event. 
+These models have self-explanatory names and intuitively named fields. 
+We also have a few helper models. 
+Our Channel model stores the information for each Group's chat channel. 
+The Pusher channel that a Channel posts on is defined by the string \texttt{GroupChat} and the group's ID. (eg: \texttt{GroupChat112}) 
+Our Message model is a single message sent in the chat. 
+Our Ping model is the information corresponding with a single safety ping. 
+Finally, our User\_Group\_info model contains information about the relationship of a User and Group (eg: which Event the User is at for a single Group).
 
+We have one third-party model which is APNSDevice, or Apple Push Notification Services Device. 
+These models are created when a user logs in and they are used to send push notifications to an iOS device.
 
+\subsubsection{Third Party API keys}
+
+Because API keys are sensitive information, none of them are included in the git repositories. 
+If you would like to receive the API keys, either get them from the server or ask a current group member.
 \end{document}
