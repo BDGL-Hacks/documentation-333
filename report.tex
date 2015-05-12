@@ -1,6 +1,8 @@
 \documentclass[12pt]{article}
 
 \usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{wrapfig}
 
 \setlength{\textheight}{8.5in}
 \setlength{\headheight}{.25in}
@@ -46,6 +48,16 @@ Party safety is always important, and we we have also taken steps to address thi
 \subsubsection{Design Process}
 
 % picture of index card mockup
+
+\begin{figure}[!htb]
+	\centering
+	\subfloat[Login and Register Page Mockups] { 
+		\includegraphics[width=.628\textwidth]{notecards_1}
+	}
+	\subfloat[Early My Events Page Mockups] {
+		\includegraphics[width=.372\textwidth]{notecards_2}
+	}
+\end{figure}
 
 In preliminary mockups of PartyUp, we opted for good old-fashioned index cards. Though simplistic, the index cards became some of the most important guidelines when we started to build views in Xcode.
 We chose to use Xcode's interface builder tool for all of the UI designs. The tool allows one to drag and drop UI elements onto a canvas, change color schemes visually, and set layout constraints.
