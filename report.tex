@@ -83,7 +83,7 @@ Because everyone had prior Python experience, we saw this as a major plus.
 However, choosing Swift proved to have some significant drawbacks that we did not foresee. 
 
 3 weeks into the project Apple released an update for Swift that broke every file in our front end code base. 
-The major update was in how Swift processes Optionals, a structure which handles the absence of a value. 
+The major update was in how Swift processes Optionals, a structure that handles the absence of a value. 
 In Apple's words, ``Optionals say either `there is a value, and it equals x' or `there isn't a value at all'". 
 When we originally decided on Swift we had not considered the possibility of a significant language update. 
 At the time of the update, it wasn't much of a problem to fix the code. 
@@ -97,13 +97,13 @@ Though using Swift came with its problems, the code reads nicely and we hope tha
 
 \section{Public API}
 
-One of the best decisions our group made was publishing an api in the backend Github repository. 
-The api describes the required post parameter key-value pairs and the contents of the returned JSON file. 
+One of the best decisions our group made was publishing an API in the back end GitHub repository. 
+The API describes the required post parameter key-value pairs and the contents of the returned JSON file. 
 This documentation allows the front end team to quickly look up the required parameters of any backend-interfacing method. 
-This meant that the front end team could develop without any back-end members present.
-In addition, having the api available opens the door for development in Android or web.
+This meant that the front end team could develop without any back end members present.
+In addition, having the API available opens the door for development in Android or web.
 
-In order for the data from the api to be handled by Xcode the key names of the returned JSON were translated into methods in the data manager class. This class handles all key-value lookups. 
+In order for the data from the API to be handled by Xcode the key names of the returned JSON were translated into methods in a static data manager class. This class handles all key-value lookups. 
 
 \section{Moving Forward}
 
@@ -186,8 +186,8 @@ The fake user accounts were created from a list of Drexel student emails that
 we scraped from their online directory,
 and some of those email addresses were quite long.
 Problematically, the built-in Django user model that we were using only allowed
-user names that were 30 characters or less, and
-we were using users' email address as their user name,
+user names that were 30 characters or less.
+We were using the user's email address as his or her user name,
 which meant that our server crashed every time we tried to create a user with a long email address.
 After a few hours of trial and error, we figured out that we could maintain unique user names
 by hashing the user's email address and encoding the hash with the base 64 encoding we learned
@@ -200,7 +200,7 @@ it--but the task exposed a major weakness in our back end and evolved into an in
 
 For the first three weeks we stayed right on track with our milestone list. 
 We were able to make significant progress at HackPrinceton, which we treated as a feature-thon for PartyUp. 
-Login, register, event creation, and group creation were completed on schedule on both the backend and the front end. 
+Login, register, event creation, and group creation were completed on schedule on both the back end and the front end. 
 We began to run into difficulties with push notifications and group chat. 
 At this point the back end was implementing functions, but there were no views on the front end to implement the features. 
 Eventually the back end created the group detail page in HTML to allow the front end to focus on fixing group chat and the other views. 

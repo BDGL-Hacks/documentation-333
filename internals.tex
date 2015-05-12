@@ -100,7 +100,7 @@ messaging application.
 By creating objects that adhered to protocols established in the library, we were able to display
 and manipulate messages in the Group Chat as we pleased.
 \texttt{libPusher} (\url{https://github.com/lukeredpath/libPusher}) provided an Objective-C
-client library for interfacing with Pusher, which is a service we use for asynchronous group
+client-library for interfacing with Pusher, which is a service we use for asynchronous group
 chat.
 After converting the relevant setup code to Swift, we could then use intuitive methods to
 interact with the Pusher channels the back end had already established.
@@ -178,7 +178,7 @@ although there are a few exceptions.
 
 \subsubsection{The \texttt{users} app}
 
-All of the backend API code is contained within the \texttt{users} app.
+All of the back end API code is contained within the \texttt{users} app.
 The \texttt{models.py} file contains all of the Django objects and their relations for our database. 
 The views (HTTP responses) for all of our API calls are found in the \texttt{views} folder and are split into appropriate files.
 The code is split into the files in the same manner that the API calls are divided within our GitHub wiki. 
