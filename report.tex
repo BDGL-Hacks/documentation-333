@@ -33,7 +33,7 @@ Because each group must be tied to at least one event, PartyUp knows when the gr
 This gives PartyUp groups the ephemeral quality that is currently enjoyed in apps like Snapchat and Yik Yak.
 
 In other social media apps, it is difficult to adapt to changing plans.
-In PartyUp, groups are able to quickly add or create a new event, check on the locations of their group-members, and send messages back and forth. This helps the group stay together even when the events around them are changing. 
+In PartyUp, groups are able to quickly add or create a new event, check on the locations of their group members, and send messages back and forth. This helps the group stay together even when the events around them are changing. 
 
 Party safety is always important, and we we have also taken steps to address this in our app. A group member can quickly see the statuses of the other group members and whether or not they have checked in to the current event. If a user has not checked in, then we can see the last place where the user was going. Single tap `pings' also allow for groups to quickly send notifications to missing group members.
 % section Motivation (end)
@@ -43,7 +43,7 @@ Party safety is always important, and we we have also taken steps to address thi
 
 % section design_decisions (end)
 
-\subsection{Frontend Design Decisions}
+\subsection{Front End Design Decisions}
 
 \subsubsection{Design Process}
 
@@ -76,13 +76,13 @@ However, had we decided to not use the interface builder, we could have saved ho
 \subsubsection{Swift vs. Objective-C}
 
 We had decided to use the Swift programming language very quickly after beginning the iPhone app development.
-Neither members of the frontend team had done iOS development, so both Swift and Objective-C would involve learning a new language. 
+Neither members of the front end team had done iOS development, so both Swift and Objective-C would involve learning a new language. 
 We feel that Swift is poised to become the dominant iOS language in the future, and it would therefore be the most useful to know if either of us wanted to build another app. 
 While reading through the documentation for both languages we saw many similarities between Swift and Python. 
 Because everyone had prior Python experience, we saw this as a major plus. 
 However, choosing Swift proved to have some significant drawbacks that we did not foresee. 
 
-3-weeks into the project Apple released an update for Swift that broke every file in our frontend code base. 
+3 weeks into the project Apple released an update for Swift that broke every file in our front end code base. 
 The major update was in how Swift processes Optionals, a structure which handles the absence of a value. 
 In Apple's words, ``Optionals say either `there is a value, and it equals x' or `there isn't a value at all'". 
 When we originally decided on Swift we had not considered the possibility of a significant language update. 
@@ -100,7 +100,7 @@ Though using Swift came with its problems, the code reads nicely and we hope tha
 One of the best decisions our group made was publishing an api in the backend Github repository. 
 The api describes the required post parameter key-value pairs and the contents of the returned JSON file. 
 This documentation allows the front end team to quickly look up the required parameters of any backend-interfacing method. 
-This meant that the front-end team could develop without any back-end members present.
+This meant that the front end team could develop without any back-end members present.
 In addition, having the api available opens the door for development in Android or web.
 
 In order for the data from the api to be handled by Xcode the key names of the returned JSON were translated into methods in the data manager class. This class handles all key-value lookups. 
@@ -200,7 +200,7 @@ it--but the task exposed a major weakness in our back end and evolved into an in
 
 For the first three weeks we stayed right on track with our milestone list. 
 We were able to make significant progress at HackPrinceton, which we treated as a feature-thon for PartyUp. 
-Login, register, event creation, and group creation were completed on schedule on both the backend and the frontend. 
+Login, register, event creation, and group creation were completed on schedule on both the backend and the front end. 
 We began to run into difficulties with push notifications and group chat. 
 At this point the back end was implementing functions, but there were no views on the front end to implement the features. 
 Eventually the back end created the group detail page in HTML to allow the front end to focus on fixing group chat and the other views. 

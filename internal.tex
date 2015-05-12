@@ -42,7 +42,7 @@ The iOS client sends a POST request that indicates which API function to call
 to the Django application on the AWS instance, and the server returns a JSON object that 
 includes the information requested by the client.
 All of the functions in the PartyUp API are documented on GitHub
-in the \href{https://github.com/BDGL-Hacks/backend-333/wiki}{project wiki},
+in the \href{https://github.com/BDGL-Hacks/backend-333/wiki}{project wiki}.
 
 %%---------------------------------------------------------------------------------------------------
 %% Front End
@@ -50,6 +50,7 @@ in the \href{https://github.com/BDGL-Hacks/backend-333/wiki}{project wiki},
 
 \section{Implementation: Front End}
 
+\subsection{Code Structure}
 The project's iOS code is written in the Swift programming language in the Xcode development environment.
 You can build and run the project using one of the simulators in Xcode or
 by plugging in a registered Apple device.
@@ -67,6 +68,8 @@ The models function as the middlemen between the front end and back end:
 during the creation process the models are areas to store local information 
 before the user completes the event or group. When fetching data the models 
 test for errors and null values before passing the information to the view controllers.
+View controllers have descriptive filenames with suffix ``\texttt{ViewController.swift}''; 
+models have suffix ``\texttt{Model.swift}.''
 
 All model classes call methods of the singleton class \texttt{PartyUpBackend.swift},
 which handles information exchange with the back end, including event creation,
@@ -76,7 +79,7 @@ sent via HTTP request to the server through a method called \texttt{sendPostRequ
 The \texttt{sendPostRequest()} method converts the returned JSON file from the back end to a dictionary object,
 which it then returns to the caller.
 
-We use a class called DataManager.swift to handle key-value lookups of dictionary objects.
+We use a class called \texttt{DataManager.swift} to handle key-value lookups of dictionary objects.
 All of the data manager's methods are static and require a dictionary (e.g. an event) as an argument.
 They return (in proper format) the value associated with whatever key the method name corresponds to. 
 
@@ -88,10 +91,11 @@ For example, when a user clicks on a table cell in the ``My Events" table,
 we pass the cell's associated event dictionary to the event info page's view controller,
 where it can render the information accordingly. 
 
+\subsection{Libraries}
 We used two libraries to help build our Group Chat feature.
 \href{https://github.com/jessesquires/JSQMessagesViewController}{\texttt{JSQViewController}} 
-provided a pre-made, fully customizable view designed to look and feel like the iOS8 standard
-Messaging application.
+provided a pre-made, fully customizable view designed to look and feel like the iOS 8 standard
+messaging application.
 By creating objects that adhered to protocols established in the library, we were able to display
 and manipulate messages in the Group Chat as we pleased.
 \href{https://github.com/lukeredpath/libPusher}{\texttt{libPusher}} provided an Objective-C
@@ -139,11 +143,11 @@ run all of the Python programs within the directory.
 The two directories, \texttt{testdata} and \texttt{partyup} will be covered
 in greater detail below.
 It should noted that all of the Python files included in these directories
-is written to the PEP-8 Python standard.
+are written according to the PEP-8 Python standard.
 
 \subsection{PartyUp's requirements}
 
-The main third-party packages that we used for Partyup are a package for Pusher, a package for Push Notifications, and MySQL-python. 
+The main third-party packages that we used for PartyUp are a package for Pusher, a package for Push Notifications, and MySQL-python. 
 The file \texttt{requirements.txt} includes the names and versions of each package used.
 All of the packages can be installed using \texttt{pip}, the recommended
 Python package manager.
@@ -175,7 +179,7 @@ although there are a few exceptions.
 All of the backend API code is contained within the \texttt{users} app.
 The \texttt{models.py} file contains all of the django objects and their relations for our database. 
 The views (http responses) for all of our API calls are found in the \texttt{views} folder and are split into appropriate files.
-The code is split into the files in the same manner that the API calls are divided within our Github wiki. 
+The code is split into the files in the same manner that the API calls are divided within our GitHub wiki. 
 We believed the best way to keep relevant API calls together was to group them by the objects that they interacted with. 
 More information on individual methods can be found on our wiki or in the code comments.
 
@@ -200,6 +204,6 @@ If you would like to receive the API keys, either get them from the server or as
 
 \section{Implementation: Django HTML views}
 
-As mentioned before, some of the app's views are rendered in HTML. We created these views in the back end repository and they can be found in the Django app \texttt{web} in the \texttt{partyup} directory. The css and js files that we created are found in the  \texttt{static} directory and the HTML files are found in the  \texttt{templates} directory. The frameworks that we used are Bootstrap's carousal, Bootstrap's glyphicons, Google's fonts, jquery, and jquery mobile. 
+Because of time constraints, some of the app's views are rendered in HTML. We created these views in the back end repository and they can be found in the Django app \texttt{web} in the \texttt{partyup} directory. The css and js files that we created are found in the  \texttt{static} directory and the HTML files are found in the  \texttt{templates} directory. The frameworks that we used are Bootstrap's carousel, Bootstrap's glyphicons, Google's fonts, jQuery, and jQuery mobile. 
 
 \end{document}
