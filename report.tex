@@ -26,11 +26,11 @@
 We created PartyUp to help friends communicate at parties and other events.
 We designed the app with the idea that it would allow users to quickly change plans, find where their friends are, and better facilitate party safety.
 
-PartyUp's was built to give users an easy way to plan a night out with friends and keep track of those friends throughout the night.
+PartyUp was built to give users an easy way to plan a night out with friends and keep track of those friends throughout the night.
 Most social media apps focus on single events or permanent groups, which don't always make sense in a party setting.
 PartyUp focuses on groups that are going to a specific event.
 Because each group must be tied to at least one event, PartyUp knows when the group should eventually be disbanded.
-This gives PartyUp groups the ephemeral quality that is currently enjoyed in apps like SnapChat and Yik Yak.
+This gives PartyUp groups the ephemeral quality that is currently enjoyed in apps like Snapchat and Yik Yak.
 
 In other social media apps, it is difficult to adapt to changing plans.
 In PartyUp, groups are able to quickly add or create a new event, check on the locations of their group-members, and send messages back and forth. This helps the group stay together even when the events around them are changing. 
@@ -61,7 +61,7 @@ Party safety is always important, and we we have also taken steps to address thi
 
 In preliminary mockups of PartyUp, we opted for good old-fashioned index cards. Though simplistic, the index cards became some of the most important guidelines when we started to build views in Xcode.
 We chose to use Xcode's interface builder tool for all of the UI designs. The tool allows one to drag and drop UI elements onto a canvas, change color schemes visually, and set layout constraints.
-Interface builder allowed us to reconstruct the index card UI on a virtual canvas. It gave us a clear picture of the app's aesthetics before it was running on a phone. 
+Interface builder let us reconstruct the index card UI on a virtual canvas. It gave us a clear picture of the app's aesthetics before it was running on a phone. 
 Perhaps even more useful, interface builder facilitates creating outlets and target-action methods between the view and code. 
 In what was a bizarre experience at first, you can actually drag from a canvas element directly to the source code to generate an outlet variable or action method. 
 
@@ -79,7 +79,7 @@ We had decided to use the Swift programming language very quickly after beginnin
 Neither members of the frontend team had done iOS development, so both Swift and Objective-C would involve learning a new language. 
 We feel that Swift is poised to become the dominant iOS language in the future, and it would therefore be the most useful to know if either of us wanted to build another app. 
 While reading through the documentation for both languages we saw many similarities between Swift and Python. 
-Because everyone had prior python experience, we saw this as a major plus. 
+Because everyone had prior Python experience, we saw this as a major plus. 
 However, choosing Swift proved to have some significant drawbacks that we did not foresee. 
 
 3-weeks into the project Apple released an update for Swift that broke every file in our frontend code base. 
@@ -100,7 +100,7 @@ Though using Swift came with its problems, the code reads nicely and we hope tha
 One of the best decisions our group made was publishing an api in the backend Github repository. 
 The api describes the required post parameter key-value pairs and the contents of the returned JSON file. 
 This documentation allows the front end team to quickly look up the required parameters of any backend-interfacing method. 
-This allowed the front-end to develop without any back-end members present.
+This meant that the front-end team could develop without any back-end members present.
 In addition, having the api available opens the door for development in Android or web.
 
 In order for the data from the api to be handled by Xcode the key names of the returned JSON were translated into methods in the data manager class. This class handles all key-value lookups. 
@@ -130,10 +130,10 @@ there are a couple that stand out that we are proud of.
 
 When it came down to the last week, we realized that the front end team would not be able to complete some of the views we saw as essential to the app. 
 The back end team offered to help, but they did not know XCode and they did not have Macs to program on.
-We were able to solve both of these problems by writing the views in  html, css, and javascript.
+We were able to solve both of these problems by writing the views in  HTML, CSS, and JavaScript.
 These views were written by the back end and then rendered directly into some of the views. 
-We were even able to have it so that the html views interfaced with the iOS views directly, through the use of calling certain URLS. 
-Though the html pages are fully functional, there is a marked difference in look and feel, as well as a short time delay to make the page request. 
+We were even able to have it so that the HTML views interfaced with the iOS views directly, through the use of calling certain URLS. 
+Though the HTML pages are fully functional, there is a marked difference in look and feel, as well as a short time delay to make the page request. 
 Perhaps with an extra week, the front end team would have been able to render these views in iOS and keep a consistent feel across the app. 
 
 \subsection{Group Organization}
@@ -161,7 +161,7 @@ We decided to try a product called PivotalTracker that we found online,
 and we were really happy with the results.
 PivotalTracker allowed us to create ``tickets" for each of the tasks that needed to be done.
 Group members can then claim tickets so everyone else can see that they are working on it.
-Furthermore, PivotalTracker made it really easy to add new tasks as we discovered things that needed to be done.
+Furthermore, PivotalTracker made it easy to add new tasks as we discovered things that needed to be done.
 In the end, PivotalTracker saved us a lot of time and make communication and planning way easier.
 
 \subsection{Testing}
@@ -189,7 +189,7 @@ Problematically, the built-in Django user model that we were using only allowed
 user names that were 30 characters or less, and
 we were using users' email address as their user name,
 which meant that our server crashed every time we tried to create a user with a long email address.
-After a few hours of trail and error, we figured out that we could maintain unique user names
+After a few hours of trial and error, we figured out that we could maintain unique user names
 by hashing the user's email address and encoding the hash with the base 64 encoding we learned
 about earlier in the semester.
 
@@ -238,11 +238,5 @@ In our case, delegation of work was essential; the project was simply too big an
 Two of our group members didn't have Mac computers, so they were completely unable to work on the iOS portion of the code. 
 Every one of us had to rely on other people; a feature of any real-world software development project. 
 It was difficult for many of the team members to completely trust that features were going to be completed in time, but in the end we were all satisfied with the final project.
-
-\section{Individual Reflections}
-
-\subsection{Graham Turk}
-
-Despite the challenges and frustrations, this was undoubtedly the most valuable experience in my time at Princeton. In the past four years I have made multiple attempts to learn app development but never had the time nor drive to follow through. The sheer quantity of information, without a clear method of learning it, had been a major deterrent to crack into development. I always saw app development as indicative of ``real-world" work, where there is no exact formula for how to tackle each problem. Given my failures to make progress, I questioned if I would be able to succeed in that model. This project proved what I always doubted to be true: perhaps the best way to learn is to be thrown into an unfamiliar situation and told to ``figure it out." This time, I was not learning as a hobby. I felt an obligation to my team members to make steady progress each week. And as a result of this unique situation, I was able to prove to myself that I can learn an entirely new skill without a formal set of steps to follow. 
 
 \end{document}

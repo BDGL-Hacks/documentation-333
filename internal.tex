@@ -60,10 +60,9 @@ The interface builder generates XML code in the \texttt{Main.storyboard} file,
 which can be inspected in any text editor.
 
 Each view is linked with a view controller class
-which dictates how to render the view and handle the user's actions. 
+that dictates how to render the view and handle the user's actions. 
 The view controllers interact with model classes to fetch information 
 that is displayed on the screen. 
-The view controllers also stores information the user inputs. 
 The models function as the middlemen between the front end and back end: 
 during the creation process the models are areas to store local information 
 before the user completes the event or group. When fetching data the models 
@@ -100,11 +99,11 @@ client library for interfacing with Pusher, which is what we were using for asyn
 chat. After converting the relevant setup code to Swift, we could then use intuitive methods to
 interact with the Pusher channels the backend had already established.
 
-Registering for Push Notifications required surprisingly on the client side. Upon logging in for
+Registering for Push Notifications required surprisingly little code on the client side. Upon logging in for
 the first time, the phone asks the user to set the app's push notification settings, then attempts
 to register with APNS (Apple Push Notification Services) if the user accepts. When the register
-is successful, we retrieve the phone's device id, then send it to the backend so the server can
-send notifications to phone later.
+is successful, we retrieve the phone's device id and send it to the backend. That way the server can
+send notifications to the phone later on.
 
 %%---------------------------------------------------------------------------------------------------
 %% Back End
