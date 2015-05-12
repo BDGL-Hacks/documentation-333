@@ -1,6 +1,8 @@
 \documentclass[12pt]{article}
 
 \usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{wrapfig}
 
 \setlength{\textheight}{8.5in}
 \setlength{\headheight}{.25in}
@@ -46,6 +48,16 @@ Party safety is always important, and we we have also taken steps to address thi
 \subsubsection{Design Process}
 
 % picture of index card mockup
+
+\begin{figure}[!htb]
+	\centering
+	\subfloat[Login and Register Page Mockups] { 
+		\includegraphics[width=.628\textwidth]{notecards_1}
+	}
+	\subfloat[Early My Events Page Mockups] {
+		\includegraphics[width=.372\textwidth]{notecards_2}
+	}
+\end{figure}
 
 In preliminary mockups of PartyUp, we opted for good old-fashioned index cards. Though simplistic, the index cards became some of the most important guidelines when we started to build views in Xcode.
 We chose to use Xcode's interface builder tool for all of the UI designs. The tool allows one to drag and drop UI elements onto a canvas, change color schemes visually, and set layout constraints.
@@ -114,7 +126,7 @@ While building the app, there were a lot of problems that we did not anticipate.
 Although we did not find elegant solutions to all of these problems,
 there are a couple that stand out that we are proud of.
 
-\subsection{Building the Event's Detail page}
+\subsection{Building the My Groups page}
 
 When it came down to the last week, we realized that the front end team would not be able to complete some of the views we saw as essential to the app. 
 The back end team offered to help, but they did not know XCode and they did not have Macs to program on.
@@ -223,8 +235,8 @@ Beyond that, just have fun with it. It's not every class that you get to build a
 Building PartyUp was unlike any school project we have ever done. 
 We had complete autonomy over the app, a scary notion at first but one that allowed us to develop our creativity. 
 In our case, delegation of work was essential; the project was simply too big and too complex for any one person to dominate. 
-Two of our group members didn't have Mac computers, so it they were literally unable to work on iOS portion of the code. 
-Each one of us had to rely on other people, a feature of any real-world software development project. 
+Two of our group members didn't have Mac computers, so they were completely unable to work on the iOS portion of the code. 
+Every one of us had to rely on other people; a feature of any real-world software development project. 
 It was difficult for many of the team members to completely trust that features were going to be completed in time, but in the end we were all satisfied with the final project.
 
 \section{Individual Reflections}

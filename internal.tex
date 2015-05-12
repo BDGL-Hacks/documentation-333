@@ -89,9 +89,22 @@ For example, when a user clicks on a table cell in the ``My Events" table,
 we pass the cell's associated event dictionary to the event info page's view controller,
 where it can render the information accordingly. 
 
-%% LANCE HERE %%
+We used two libraries to help build our Group Chat feature.
+\href{https://github.com/jessesquires/JSQMessagesViewController}{\texttt{JSQViewController}} 
+provided a pre-made, fully customizable view designed to look and feel like the iOS8 standard
+Messaging application.
+By creating objects that adhered to protocols established in the library, we were able to display
+and manipulate messages in the Group Chat as we pleased.
+\href{https://github.com/lukeredpath/libPusher}{\texttt{libPusher}} provided an Objective-C
+client library for interfacing with Pusher, which is what we were using for asynchronous group
+chat. After converting the relevant setup code to Swift, we could then use intuitive methods to
+interact with the Pusher channels the backend had already established.
 
-Lance talks about iOS group messaging and push notifications here
+Registering for Push Notifications required surprisingly on the client side. Upon logging in for
+the first time, the phone asks the user to set the app's push notification settings, then attempts
+to register with APNS (Apple Push Notification Services) if the user accepts. When the register
+is successful, we retrieve the phone's device id, then send it to the backend so the server can
+send notifications to phone later.
 
 %%---------------------------------------------------------------------------------------------------
 %% Back End
@@ -141,7 +154,6 @@ The command
 \end{lstlisting}
 will install all of the packages at once.
 
-
 \subsection{testdata}
 
 This directory contains a Python script, \texttt{filldatabase.py},
@@ -190,4 +202,5 @@ If you would like to receive the API keys, either get them from the server or as
 \section{Implementation: Django HTML views}
 
 As mentioned before, some of the app's views are rendered in HTML. We created these views in the back end repository and they can be found in the Django app \texttt{web} in the \texttt{partyup} directory. The css and js files that we created are found in the  \texttt{static} directory and the HTML files are found in the  \texttt{templates} directory. The frameworks that we used are Bootstrap's carousal, Bootstrap's glyphicons, Google's fonts, jquery, and jquery mobile. 
+
 \end{document}
